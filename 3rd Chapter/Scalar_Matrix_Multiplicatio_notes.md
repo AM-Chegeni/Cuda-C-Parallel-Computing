@@ -24,7 +24,7 @@ CUDA uses a special function called a kernel to execute code on the GPU. For our
 
 Here’s a complete CUDA C code example for scalar-matrix multiplication.
 
-```
+```sh
 #include <stdio.h>
 #include <cuda_runtime.h>
 
