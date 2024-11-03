@@ -41,7 +41,7 @@ In CUDA, each thread will compute one element of the resulting matrix C, leverag
 
 The following code is mostly complete. Your task is to fill in the matrixMulGPU kernel function and the grid/block dimensions.
 
-```
+```sh
 #include <stdio.h>
 
 #define N 64
