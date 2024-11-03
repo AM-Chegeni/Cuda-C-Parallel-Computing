@@ -14,7 +14,9 @@ Implement and understand managed memory allocation and memory prefetching in CUD
 **Code Skeleton:**
 
 Here’s a starting code structure to guide your implementation:
-```
+
+```sh
+
 #include <stdio.h>
 
 __global__ void initWith(float num, float *a, int N) {
@@ -64,7 +66,7 @@ Implement vector summation with multiple kernel launches to compute the final re
 - This exercise is a variation on a parallel reduction technique. Each kernel launch reduces the size of the input by half.
 - Within each kernel call, you could use code similar to:
 
-```
+```sh
   __global__ void partialSum(float *A, int N) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     int stride = 1;
@@ -98,7 +100,7 @@ Implement vector summation with multiple kernel launches to compute the final re
   - Thrust’s device_vector automatically handles memory allocation and data transfer between CPU and GPU, simplifying code.
 - Code snippet to perform the element-wise addition:
 
-```
+```sh
 thrust::device_vector<float> A(N, 1.0f);  // Initialize A with N elements
 thrust::device_vector<float> B(N, 2.0f);  // Initialize B with N elements
 thrust::device_vector<float> C(N);
