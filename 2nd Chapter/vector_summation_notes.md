@@ -16,7 +16,7 @@ To implement vector summation on the GPU:
 
 The following code demonstrates these steps in CUDA C:
 
-```
+```sh
 #include <stdio.h>
 #include <cuda_runtime.h>
 
@@ -81,7 +81,7 @@ int main() {
 ```
 **Kernel Function Definition: Vector Addition**
 
-```
+```sh
 __global__ void vectorAdd(const float *A, const float *B, float *C, int N) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;  // Compute global thread index
     if (i < N) {
@@ -95,20 +95,20 @@ __global__ void vectorAdd(const float *A, const float *B, float *C, int N) {
 
 **Host Code: Memory Allocation and Kernel Launch**
 
-```
+```sh
 int N = 1 << 20;
 size_t size = N * sizeof(float);
 ```
 We define the number of elements, N, and calculate size in bytes for memory allocation.
 
-```
+```sh
 float *h_A = (float *)malloc(size);
 float *h_B = (float *)malloc(size);
 float *h_C = (float *)malloc(size);
 ```
 h_A, h_B, and h_C are pointers to host memory where we store vectors A, B, and C, respectively.
 
-```
+```sh
 for (int i = 0; i < N; ++i) {
     h_A[i] = i * 0.5f;
     h_B[i] = i * 0.3f;
@@ -118,21 +118,22 @@ This loop initializes vectors h_A and h_B on the host.
 
 **Device Memory Allocation and Data Transfer**
 
-```float *d_A, *d_B, *d_C;
+```sh
+float *d_A, *d_B, *d_C;
 cudaMalloc((void **)&d_A, size);
 cudaMalloc((void **)&d_B, size);
 cudaMalloc((void **)&d_C, size);
 ```
 Here, d_A, d_B, and d_C are pointers to device memory. cudaMalloc allocates memory for these vectors on the GPU.
 
-```
+```sh
 cudaMemcpy(d_A, h_A, size, cudaMemcpyHostToDevice);
 cudaMemcpy(d_B, h_B, size, cudaMemcpyHostToDevice);
 ```
 cudaMemcpy copies data from the host to the device (cudaMemcpyHostToDevice), transferring h_A and h_B to d_A and d_B.
 
 **Launching the kernel**
-```
+```sh
 int threadsPerBlock = 256;
 int blocksPerGrid = (N + threadsPerBlock - 1) / threadsPerBlock;
 vectorAdd<<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, N);
@@ -141,26 +142,26 @@ vectorAdd<<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, N);
 - We launch the kernel with blocksPerGrid blocks and threadsPerBlock threads per block, where each thread computes one element of C.
 
 **Copying Results Back to Host and Cleanup**
-```
+```sh
 cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
 ```
 After kernel execution, we copy d_C (GPU result) to h_C (CPU) for verification.
 
-```
+```sh
 for (int i = 0; i < 10; ++i) {
     printf("h_C[%d] = %f\n", i, h_C[i]);
 }
 ```
 We print the first 10 results to verify correctness.
 
-```
+```sh
 cudaFree(d_A);
 cudaFree(d_B);
 cudaFree(d_C);
 ```
 cudaFree releases GPU memory for d_A, d_B, and d_C.
 
-```
+```sh
 free(h_A);
 free(h_B);
 free(h_C);
