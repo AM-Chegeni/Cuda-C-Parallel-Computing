@@ -98,7 +98,7 @@
 
 ---
 
-### 4. Estimating \( \pi \) Using Numerical Integration
+### 4. Estimating $\( \pi \)$ Using Numerical Integration
 **Goal**: This project explores how to compute the integral:
 
 ```math
