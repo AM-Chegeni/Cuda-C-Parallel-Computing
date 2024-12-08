@@ -110,8 +110,8 @@ using numerical methods such as the trapezoidal rule or Riemann sums and paralle
 **Data**:
 
 - No pre-existing data is required.
-- Generate a sequence of evenly spaced \( x \)-values in \([0, 1]\).
-- The function \( f(x) = \frac{4}{1+x^2} \) is predefined.
+- Generate a sequence of evenly spaced $\( x \)$-values in $\([0, 1]\)$.
+- The function $\( f(x) = \frac{4}{1+x^2} \)$ is predefined.
  
 **Key Concepts**: 
 ### CUDA:
