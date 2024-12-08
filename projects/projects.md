@@ -60,13 +60,6 @@
 
 ---
 
-### 3. Financial Portfolio Optimization
-**Goal**: Use OpenMP to accelerate a portfolio optimization algorithm (e.g., Monte Carlo simulations for stock returns).  
-**Data**: Download historical stock prices using APIs (e.g., Yahoo Finance) or generate synthetic stock price data.  
-**Key Concepts**: Work sharing, data parallelism, and performance profiling.  
-
----
-
 ### 4. Numerical Integration
 **Goal**: Use OpenACC to parallelize a numerical integration method (e.g., Simpson's rule or trapezoidal rule).  
 **Data**: Generate functions to integrate (e.g., polynomials, sine functions, or more complex expressions).  
@@ -100,11 +93,4 @@
 ### 3. Real-Time Image Processing
 **Goal**: Combine OpenACC for preprocessing (e.g., resizing or filtering) and CUDA for detailed processing (e.g., edge detection, convolution).  
 **Data**: Use a dataset of images (e.g., from ImageNet or custom images).  
-**Key Concepts**: Coordinating host and device, memory optimization, and real-time benchmarks.  
-
----
-
-### 4. Weather Simulation
-**Goal**: Simulate a simple weather model using OpenACC for initializing data (temperature, pressure) and CUDA for intensive grid calculations.  
-**Data**: Create synthetic weather data for a 2D grid with random initial conditions.  
-**Key Concepts**: Stencil operations, memory handling, and scalability.  
+**Key Concepts**: Coordinating host and device, memory optimization, and real-time benchmarks. 
