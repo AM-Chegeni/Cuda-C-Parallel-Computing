@@ -101,19 +101,20 @@
 ### 4. Estimating \( \pi \) Using Numerical Integration
 **Goal**: This project explores how to compute the integral:
 
-\[
+```math
 \int_0^1 \frac{4}{1+x^2} \, dx = \pi
-\]
+```
 
 using numerical methods such as the trapezoidal rule or Riemann sums and parallelize it with CUDA, OpenACC, and OpenMP. The goal is to analyze the performance of these parallelization techniques and compare their speedups and accuracies.
   
-**Data**: ## Data
+**Data**:
 
 - No pre-existing data is required.
 - Generate a sequence of evenly spaced \( x \)-values in \([0, 1]\).
 - The function \( f(x) = \frac{4}{1+x^2} \) is predefined.
  
-**Key Concepts**: ### CUDA:
+**Key Concepts**: 
+### CUDA:
 - Thread indexing for assigning subintervals.
 - Efficient memory management and reduction operations.
 
