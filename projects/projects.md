@@ -94,3 +94,34 @@
 **Goal**: Combine OpenACC for preprocessing (e.g., resizing or filtering) and CUDA for detailed processing (e.g., edge detection, convolution).  
 **Data**: Use a dataset of images (e.g., from ImageNet or custom images).  
 **Key Concepts**: Coordinating host and device, memory optimization, and real-time benchmarks. 
+
+
+---
+
+### 4. Estimating \( \pi \) Using Numerical Integration
+**Goal**: This project explores how to compute the integral:
+
+\[
+\int_0^1 \frac{4}{1+x^2} \, dx = \pi
+\]
+
+using numerical methods such as the trapezoidal rule or Riemann sums and parallelize it with CUDA, OpenACC, and OpenMP. The goal is to analyze the performance of these parallelization techniques and compare their speedups and accuracies.
+  
+**Data**: ## Data
+
+- No pre-existing data is required.
+- Generate a sequence of evenly spaced \( x \)-values in \([0, 1]\).
+- The function \( f(x) = \frac{4}{1+x^2} \) is predefined.
+ 
+**Key Concepts**: ### CUDA:
+- Thread indexing for assigning subintervals.
+- Efficient memory management and reduction operations.
+
+### OpenMP:
+- Use `#pragma omp parallel for` to divide work across threads.
+- Manage shared and private variables for efficient computation.
+
+### OpenACC:
+- Use `#pragma acc parallel loop` to accelerate computation on the GPU.
+- Handle data movement between host and device memory.
+
